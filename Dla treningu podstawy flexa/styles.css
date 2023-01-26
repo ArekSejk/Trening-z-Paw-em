@@ -1,0 +1,75 @@
+body {
+    margin: 10px;
+    background: grey;
+}
+
+.container {
+    background: rgb(168, 167, 167);
+    padding: 10px;
+    height: 540px;
+    display: flex;
+    /* żeby flex box w ogóle działał kontener w którym wszystkie manewry robimy musi mieć ustawione display:flex */
+    flex-wrap: wrap;
+    /* GDY są ustawione w szerokości Wiersza A B C, dzięki użyciu wrap gdy zmniejszymy okienko to gdy przestaną się w nim mieścić zaczną się zawijać do kolejnych wierszy 
+    
+    A B
+    C
+
+     a przy jeszcze mniejszym 
+     
+    A
+    B
+    C
+    
+    Jak do tego dodamy jeszcze np. align-content: center to beda utrzymywane w srodku, a przy zawijaniu w mniejszym oknie dalej całość będzie uwzględniała się w centrum. Tak samo 
+
+     */
+
+
+}
+
+.container div {
+    margin: 5px;
+    width: 200px;
+}
+
+.green {
+    background: green;
+    /* min-height: 80px; */
+    /* z założenia jeśli damy min-height to fajnie się rozciągają na całą linijkę. Wtedy np nie ma możliwości wrapu do kolejnych. Żeby była trzeba usunąć min. */
+    height: 80px;
+}
+
+.yellow {
+    background: yellow;
+    height: 150px;
+    /* flex-grow: 3;
+    flex-basis: 0; */
+    /* W yellow i blue flex-grow (jak dzielą się przy uzupełnianiu wolnej przestrzeni między sobą. Tylko wolną. Gdy dodamy do tego flex-basis wtedy jest dzielona w ustalonym stosunku całą przestrzeń wolna + zajmowana przez blue i yellow.*/
+}
+
+.blue {
+    background: blue;
+    height: 200px;
+    /* flex-grow: 1;
+    flex-basis: 0; */
+
+}
+
+.white {
+    background: white;
+    border: 2px solid black;
+}
+
+.grey {
+    background: grey;
+
+}
+
+.black {
+    background: black;
+}
+
+
+/* 
+Align-items: center - środkowanie względem osi pomocniczej (kolumny) góra dół. */

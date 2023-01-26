@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
+
+
+/* Do Poprawy! */
+
+/* Projekt został zaakceptowany, jest w 100% zgodny z figmą, ale Paweł zaproponował, żeby zrobić poniższe modyfikacje do przyszłych projektów:
+1. Nie blokować szerokości stonki/siatki w takich projektach. Jeśli trzeba robić i nie ma ograniczeń to robić na szerokość całego okna: background, siatkę itd. Prawdopodobnie zmieniając sztywne wielkości width i height usuwając lub ustawiając na całym oknie. 
+2. W rozmiarach siatki dać lepiej wymiary bardziej relatywne tj. template (3,1fr), natomiast już karty produktu zrobić na sztywnych rozmiarach, to spowoduje, że zmniejszając okno sukcesywnie ilość kart na szerokość będzie się rolować do kolenych rzędów aż przy małym oknie będzie 1 karta na szerokość jak w mobile. Ale mobile osobno ma być.
+
+ */
+
+
+/* Grid */
+.products_grid {
+    display: grid;
+    margin: 20px auto;
+    background: linear-gradient(#FFDBBC , #FFEA7F);
+    box-sizing: border-box;
+    padding: 25px 70px;
+    width: 950px;
+    height: 1070px;
+    grid-template-rows: repeat(3,320px);
+    grid-template-columns: repeat(3,250px);
+    gap: 30px;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .products_grid {
+        width: 354px;
+        height: 100%;
+        grid-template-columns: 100%;
+        padding: 25px 52px;
+    }
+}
+
+/* Product card */
+.product_card {
+    background: #8DADFF;
+    padding: 23px 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product_card:hover {
+    transform: scale(110%) ;
+}
+.product_card:active {
+    border: 3px solid black;
+}
+
+/* Products pictures - styling general */
+.prod_pic {
+    width: 210px;
+    height: 210px;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}
+
+/* Products pictures - styling detailed */
+.lens_pic {
+    background: url(/Lens.png);
+    background-size: 140%;
+    background-position: center;
+}
+.gimbal_pic {
+    background: url(/Gimbal.png);
+    background-position: center;
+    background-size: 95%;
+}
+.headphones_pic {
+    background: url(/Headphones.png);
+    background-position: 65% 68%;
+    background-size: 130%;
+}
+.logi_pic {
+    background: url(/Logi.png);
+    background-position: 0% 5%;
+    background-size: 100%;
+}
+.lumix_pic {
+    background: url(/Lumix.png);
+    background-position: center;
+    background-size: 130%;
+}
+.samsung_pic {
+    background: url(/Samsung.png);
+    background-position: 0% 70%;
+    background-size: 100%;
+}
+.sennheise_pic {
+    background: url(/Sennheise.png);
+    background-position: -7px -22px;
+    background-size: 110%;
+}
+.smartwatch_pic {
+    background: url(/Smartwatch.png);
+    background-position: 0 -40px;
+    background-size: 103%;
+}
+.sony_pic {
+    background: url(/Sony.png);
+    background-position: center;
+    background-size: 140%;
+}
+
+/* Name & price */
+.prod_name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: lighter;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    text-align: center;
+}
+.prod_price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: lighter;
+    color: rgba(19, 50, 104, 1);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Opacity of the name/price of product that is out of stock */
+.out_of_stock {
+    opacity: 0.4;
+}
+
+

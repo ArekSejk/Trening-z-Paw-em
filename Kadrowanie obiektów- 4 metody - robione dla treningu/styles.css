@@ -1,0 +1,80 @@
+/*
+1 sposób na kadrowanie obrazka przez CSS.
+Zrobienie ujemnych marginów na pół wartości obrazka. W ten sposób go wycentrujejmy */
+.one {
+    border: 3px solid black;
+    width: 400px;
+    overflow: hidden;
+    height: 400px;
+    margin: 0px;
+    display: inline-block;
+    /* overflow jest wymagane bo ucina wszystko co wystaje poza wymiary kontenera. Na końcu metod jest wyjaśnienie opcji overflow */
+}
+.negative_margin {
+    margin-left: -45%;
+    margin-top: -15%;
+    /* ewentualnie można zapisać wspólnie margin: -15% -45%; itd. */
+}
+
+/*
+2 sposób na kadrowanie obrazka w CSSie.
+Za pomocą object_position. Określa położenie obrazu lub wideo w polu zawartości. Ale nie względem kontenera w którym się znajduje tylko położenia pierwotnego. Pierwsza wartość kontroluje oś x,
+a druga oś y. Może to być ciąg znaków (left,center, right) lub liczba (w pikselach lub %). Dozwolone są wartości ujemne. Mega obszerny temat super wyjaśniony pod linkiem
+https: //webkod.pl/kurs-css/wlasciwosci/tresc-zewnetrzna/object-position
+
+oraz
+
+https: //www.aurainweb.pl/pozycjonowanie-obrazka-z-css-object-position/
+
+Ostatecznie te zapisy są niby mega wszechstronne, ale udało mi się tylko to zrobić w wartościach absolutnych, a nie w % itd. Wydaje mi się, że może się udac na mniejszym obrazku niż mój div.
+*/
+.object_position {
+    object-position: -100px -100px;
+}
+
+
+/* 
+3 sposób na kadrowanie obiektu przez CSS.
+Przez wstawienie do kontenera obrazka jako tła ale przez style a nie w htmlu <img..> i wystarczy go wycentrować. W przypadku gdy obrazek jest mniejszy od kontenera trzeba dodać no repeat.
+JEST TO JEDYNA METODA z czterech tu omówionych, która centruje sama, a nie klepiąc wartości absolutne.
+*/
+.bg_url {
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    border: 3px solid red;
+    background: url(/kosz.jpg);
+    /* background-repeat: no-repeat; */
+    background-position: center;
+}
+
+
+/* 
+4 sposób clip:rect
+Działa tylko jeśli zrobimy obiekt absolute. Lipna metoda. Udaje się tylko z wartościami absolutnymi. I wszystkie wartości w czterech płaszczyznach są nie wartościami odejmowanymi a miejscem jakby lokalizacji brzegów tego co zostawiamy licząc od lewej i góry. Potem i tak trzeba pozycjonować względem kontenera. Dużo pisania i śmiecenia. Nie używać.
+*/
+
+.two {
+    display: block;
+    width: 400px;
+    height: 400px;
+    border: 3px solid green;
+    position: relative;
+}
+.clip {
+    position: absolute;
+    clip: rect(150px, 640px, 500px, 200px);
+    left: -200px;
+    top: -130px;
+}
+
+
+/* Omówienie OVERFLOW.
+Właściwość overflow ma następujące wartości:
+ -visible- Domyślna. Przelew nie jest przycięty. Treść renderuje się poza polem elementu 
+ -hidden- Przepełnienie zostanie obcięte,a reszta treści będzie niewidoczna 
+ -scroll- Przepełnienie jest obcięte i dodany jest pasek przewijania, aby zobaczyć resztę treści
+ -auto- Podobne do scroll,ale dodaje paski przewijania tylko wtedy, gdy jest to konieczne 
+ -overflow-X i Y- określają,czy przepełnienie treści ma być zmieniane tylko w poziomie,czy w pionie (lub w obu):
+ np. overflow-x: hidden; overflow-y: scroll;
+ Uwaga: Właściwość overflowdziała tylko dla elementów blokowych o określonej wysokości.*/
